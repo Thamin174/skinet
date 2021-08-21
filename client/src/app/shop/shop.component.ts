@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { count } from 'rxjs/operators';
 import { IBrand } from '../shared/models/brand';
 import { IProduct } from '../shared/models/product';
 import { IType } from '../shared/models/productType';
@@ -41,6 +42,7 @@ export class ShopComponent implements OnInit {
       console.log(error);
     })
   }
+
 
   getBrands() {
     this.shopService.getBrands().subscribe(response => {
