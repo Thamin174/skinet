@@ -15,6 +15,8 @@ namespace API.Extensions
             builder.AddEntityFrameworkStores<AppIdentityDbContext>();
             builder.AddSignInManager<SignInManager<AppUser>>();
 
+            services.AddAuthentication();
+
             return services;
         }
     }
