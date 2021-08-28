@@ -52,7 +52,7 @@ namespace API
             });
 
             services.AddApplicationServices();
-            services.AddIndentityService();
+            services.AddIndentityService(_config);
 
             services.AddSwaggerGen(c =>
             {
@@ -74,7 +74,6 @@ namespace API
             app.UseMiddleware<ExceptionMiddleware>();
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             }
@@ -88,6 +87,8 @@ namespace API
             app.UseStaticFiles();
 
             app.UseCors("CorsPolicy");
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
