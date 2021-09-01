@@ -52,7 +52,7 @@ namespace API
             });
 
             services.AddApplicationServices();
-            services.AddIndentityService(_config);
+            services.AddIdentityServices(_config);
 
             services.AddSwaggerGen(c =>
             {
@@ -78,7 +78,7 @@ namespace API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             }
 
-            app.UseStatusCodePagesWithReExecute("errors/{0}");
+            app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
             app.UseHttpsRedirection();
 
